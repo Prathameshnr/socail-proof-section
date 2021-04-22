@@ -1,0 +1,257 @@
+:root {
+  --verydarkmagenta: hsl(300, 43%, 22%);
+  --softpink: hsl(333, 80%, 67%);
+  --Dark-Grayish-Magenta: hsl(303, 10%, 53%);
+  --Light-Grayish-Magenta: hsl(300, 24%, 96%);
+  --White: hsl(0, 0%, 100%);
+  --ff-primary: "Spartan", sans-serif;
+  --fs-400: 0.8125rem;
+  --fs-500: 0.9625rem;
+  --fs-900: 2rem;
+  --br: 0.5rem;
+}
+
+@media (min-width: 50em) {
+  :root {
+    --fs-900: 3rem;
+  }
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+li {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  font-size: var(--fs-400);
+  font-family: var(--ff-primary);
+  padding-top: 5rem;
+  text-align: center;
+  background: url(../../images/bg-pattern-top-desktop.svg),
+    url(../../images/bg-pattern-bottom-desktop.svg);
+  background-repeat: no-repeat;
+  background-position: top left, bottom right;
+}
+
+h1 {
+  font-size: var(--fs-900);
+  font-weight: 800;
+  color: var(--verydarkmagenta);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  max-width: 12ch;
+}
+
+@media (max-width: 50em) {
+  h1 {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+  }
+}
+
+.lead {
+  font-size: var(--fs-500);
+}
+
+main {
+  display: grid;
+  gap: 3rem 1rem;
+}
+
+@media (min-width: 50em) {
+  main {
+    grid-template-columns: 1fr 1.5fr;
+    text-align: left;
+  }
+  .intro {
+    grid-column: 1/2;
+  }
+  .ratings {
+    grid-column: 2/3;
+    align-self: center;
+  }
+  .quotes {
+    grid-column: 1/-1;
+  }
+}
+
+.container {
+  max-width: 70rem;
+  padding: 0 2em;
+  margin: 0 auto;
+}
+
+.flow-content > * + * {
+  margin-top: var(--flow-space, 1rem);
+}
+
+.split {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+@media (min-width: 50em) {
+  .split {
+    flex-direction: row;
+  }
+}
+
+.a-center {
+  align-items: center;
+}
+
+.quotes {
+  --spacer: 2rem;
+}
+
+.quotes li {
+  background-color: var(--verydarkmagenta);
+  color: var(--Light-Grayish-Magenta);
+  text-align: left;
+  border-radius: var(--br);
+  padding: var(--spacer);
+  max-width: 23rem;
+  margin: 0 auto;
+}
+
+.quotes li:nth-child(2) {
+  transform: translateY(3rem);
+}
+
+.quotes li:last-of-type {
+  transform: translateY(6rem);
+}
+
+.quotes img {
+  width: 3rem;
+  border-radius: 50%;
+  margin-right: var(--spacer);
+}
+
+.quotes .quote {
+  margin-top: var(--spacer);
+}
+
+.quotes .name {
+  font-weight: 800;
+}
+
+.quotes .status {
+  color: var(--softpink);
+}
+
+.ratings li {
+  font-weight: 800;
+  background-color: var(--Light-Grayish-Magenta);
+  color: var(--verydarkmagenta);
+  padding: 0.75rem 2rem;
+  border-radius: var(--br);
+  max-width: 30rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ratings li::before {
+  content: "";
+  height: 1rem;
+  width: 100px;
+  margin: 0 auto;
+  display: block;
+  background: url(../../images/icon-star.svg);
+  background-repeat: space;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 50em) {
+  .ratings li {
+    display: flex;
+    align-content: center;
+    padding: 1rem 3rem;
+  }
+  .ratings li::before {
+    margin: 0 1.5rem 0 0;
+  }
+  .ratings li:first-of-type {
+    transform: translateX(-2.5rem);
+  }
+  .ratings li:last-of-type {
+    transform: translateX(2.5rem);
+  }
+}

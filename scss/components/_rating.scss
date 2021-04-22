@@ -1,0 +1,41 @@
+.ratings {
+  li {
+    font-weight: 800;
+    background-color: var(--Light-Grayish-Magenta);
+    color: var(--verydarkmagenta);
+    padding: 0.75rem 2rem;
+    border-radius: var(--br);
+    max-width: 30rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    &::before {
+      content: "";
+      height: 1rem;
+      width: 100px;
+      margin: 0 auto;
+      display: block;
+      background: url(../../images/icon-star.svg);
+      background-repeat: space;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (min-width: 50em) {
+      display: flex;
+      align-content: center;
+      padding: 1rem 3rem;
+
+      &::before {
+        margin: 0 1.5rem 0 0;
+      }
+
+      &:first-of-type {
+        transform: translateX(-2.5rem);
+      }
+
+      &:last-of-type {
+        transform: translateX(2.5rem);
+      }
+    }
+  }
+}
